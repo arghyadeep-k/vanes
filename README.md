@@ -33,7 +33,7 @@ Or
 
 Add the following to your *package.json* file under dependencies
 
-`"vanes": "1.1.0"`
+`"vanes": "^1.1.0"`
 
 
 
@@ -63,10 +63,35 @@ console.log(result)
 
 Multiple key-value pairs can be sent separated by comma.
 
+## TypeScript Support
+
+Vanes includes TypeScript type definitions out of the box.
+
+```typescript
+import vanes = require('vanes');
+
+const result = vanes("Hello, {name}!", { name: "World" });
+// TypeScript will infer the return type as string
+```
+
+## Edge Cases
+
+- **Missing keys**: Placeholders without a matching key in varList are replaced with an empty string
+  ```javascript
+  vanes("Hello, {name}!", {}) // Returns: "Hello, !"
+  ```
+
+- **Invalid input**: Non-string first argument returns an empty string
+  ```javascript
+  vanes(123, {name: "World"}) // Returns: ""
+  ```
+
 ## Unit Testing
 
-Unit testing has been added as part of the latest release.
-To run the test case, download the package and run `npm test`.
+Unit testing is included. Run tests with:
+```bash
+npm test
+```
 
 ## License
 
@@ -75,6 +100,7 @@ Vanes is published under the MIT license. For more information, see the accompan
 <br>
 
 ---
+
 <br>
 
 ### PS: 
