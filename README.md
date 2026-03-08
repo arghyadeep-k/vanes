@@ -88,8 +88,10 @@ const result = vanes("Hello, {name}!", { name: "World" });
 
 ## Unit Testing
 
-Unit testing has been added as part of the latest release.
-To run the test case, download the package and run `npm test`.
+Unit testing is included. Run tests with:
+```bash
+npm test
+```
 
 ## License
 
